@@ -20,6 +20,7 @@ function existsWithLaunchId(launchId) {
 function getAllLaunches() {
   return Array.from(launches.values());
 }
+
 function addNewLaunches(launch) {
   latestFlightNumber++;
   launches.set(

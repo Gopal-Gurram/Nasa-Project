@@ -8,6 +8,7 @@ const {
 function httpGetAllLaunches(req, res) {
   res.sendStatus(200).json(getAllLaunches());
 }
+
 function httpAddNewLaunch(req, res) {
   const launch = req.body;
   if (
@@ -27,7 +28,7 @@ function httpAddNewLaunch(req, res) {
     });
   }
   addNewLaunches(launch);
-  return res.sendStatus(200).json(launch);
+  return res.sendStatus(201).json(launch);
 }
 
 function httpAbortLaunch(req, res) {
