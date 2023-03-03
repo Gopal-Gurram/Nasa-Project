@@ -17,7 +17,7 @@ function httpAddNewLaunch(req, res) {
     !launch.launchDate ||
     !launch.target
   ) {
-    return res.status(400).json({
+    return res.sendStatus(400).json({
       error: "Missing required launch property",
     });
   }
@@ -36,14 +36,14 @@ function httpAbortLaunch(req, res) {
 
   // if launch id doesn't exist
   if (!existsWithLaunchId(launchId)) {
-    req.sendStatus(400).json({
+    res.sendStatus(400).json({
       error: "Launch not found",
     });
   }
 
   // if launch id  exist
   const aborted = abortByLaunchId(launchId);
-  req.sendStatus(200).json(aborted);
+  res.sendStatus(200).json(aborted);
 }
 
 module.exports = { httpGetAllLaunches, httpAddNewLaunch, httpAbortLaunch };
